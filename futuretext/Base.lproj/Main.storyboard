@@ -76,6 +76,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tav-BV-qc3">
                                 <rect key="frame" x="316" y="110" width="123" height="30"/>
                                 <state key="normal" title="Choose a Contact"/>
+                                <connections>
+                                    <action selector="viewContacts:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tYr-Av-2cX"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Receiving number" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GFH-Pw-Cis">
                                 <rect key="frame" x="154" y="110" width="130" height="30"/>

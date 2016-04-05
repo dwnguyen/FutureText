@@ -27,6 +27,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     class func getAppDelegate() -> AppDelegate {
         return UIApplication.sharedApplication().delegate as! AppDelegate
     }
+    
+    func checkContactAccess() -> Bool{
+        let authorization = CNContactStore.authorizationStatusForEntityType(CNEntityType.Contacts)
+        if authorization == .Authorized{
+            return true
+        }
+        else{
+            return false
+        }
+    }
+    
+    func requestContactAccess(){
+        self.contactStore.requestAccessForEntityType(CNEntityType.Contacts, completionHandler: {(accessGranted, accessError) -> Void in
+            if accessGranted == false{
+                let alert = UIAlertController(title: "Contacts", message:
+                    "Please enable contacts in settings if you want to send messages to your contacts", preferredStyle: UIAlertControllerStyle.Alert)
+                let dismiss = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil)
+                alert.addAction(dismiss)
+                let vc = self.window!.rootViewController;
+                vc?.presentViewController(alert, animated: true, completion: nil)
+                
+            }
+        })
+
+        
+    }
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         

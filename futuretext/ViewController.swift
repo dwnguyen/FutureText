@@ -10,8 +10,10 @@ import UIKit
 import MessageUI
 import mailgun
 
-class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate {
 
+@available(iOS 9.0, *)
+class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate {
+    
     /** Takes user input for the user's name*/
     @IBOutlet weak var nameField: UITextField!
     /** Takes user input for the message to be sent*/
@@ -39,7 +41,8 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate 
     /**
      Sends a text by emailing service provider when linked button is pressed.
      Uses the provided name and phone number from the text fields.
-     - Parameter sender:   The button that calls the method
+     
+     - Parameter sender:   The button that calls the method (Send to Future)
     */
     @IBAction func sendText(sender: UIButton) {
         let mailgun: Mailgun = Mailgun.clientWithDomain("sandboxb5df4d368c4c472ea05844e6da828448.mailgun.org", apiKey: "key-eb644fc9dafb391e4135512567198c7d")
@@ -58,6 +61,18 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate 
         })
         
     }
+    
+    
+    @IBAction func viewContacts(sender: AnyObject) {
+        let contactStore = AppDelegate.getAppDelegate().contactStore
+        if !AppDelegate.getAppDelegate().checkContactAccess(){
+            AppDelegate.getAppDelegate().requestContactAccess()
+        }
+        else{
+            
+        }
+    }
+    
     
     
     override func viewWillDisappear(animated: Bool) {
