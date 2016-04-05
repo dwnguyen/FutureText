@@ -9,10 +9,11 @@
 import UIKit
 import MessageUI
 import mailgun
+import ContactsUI
 
 
 @available(iOS 9.0, *)
-class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate {
+class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate, CNContactPickerDelegate {
     
     /** Takes user input for the user's name*/
     @IBOutlet weak var nameField: UITextField!
@@ -24,9 +25,23 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate 
     @IBOutlet weak var datePicker: UIDatePicker!
     
     /** Stores the name of the user*/
-    var name = "";
+    var name :String{
+        get {
+            if let returnValue = NSUserDefaults.standardUserDefaults().objectForKey("name") as? String {
+                return returnValue
+            } else {
+                return "Enter your name" //Default value
+            }
+        }
+        set {
+            NSUserDefaults.standardUserDefaults().setObject(newValue, forKey: "name")
+            NSUserDefaults.standardUserDefaults().synchronize()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        nameField.text = name
         messageField.editable = true
         nameField.delegate = self
         phoneField.delegate = self
@@ -69,12 +84,18 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate 
             AppDelegate.getAppDelegate().requestContactAccess()
         }
         else{
-            
+            let contactPicker = CNContactPickerViewController()
+            contactPicker.delegate = self
+            contactPicker.displayedPropertyKeys =
+                [CNContactPhoneNumbersKey]
+            self.presentViewController(contactPicker, animated: true, completion: nil)
         }
     }
     
     
-    
+    func contactPicker(picker: CNContactPickerViewController, didSelectContactProperty contactProperty: CNContactProperty) {
+        phoneField.text = contactProperty.value!.valueForKey("digits")! as! String
+    }
     override func viewWillDisappear(animated: Bool) {
         self.navigationController?.navigationBarHidden = false
     }
@@ -103,9 +124,13 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate 
         if textField == nameField && nameField.text == ""{
             nameField.text = "Enter your name"
         }
+        else{
+            name = nameField.text!
+        }
         if textField == phoneField && phoneField.text == ""{
             phoneField.text = "Receiving number"
         }
     }
+    
     
 }
