@@ -15,6 +15,7 @@ import ContactsUI
 @available(iOS 9.0, *)
 class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate, CNContactPickerDelegate {
     
+    @IBOutlet weak var recieverLabel: UILabel!
     /** Takes user input for the user's name*/
     @IBOutlet weak var nameField: UITextField!
     /** Takes user input for the message to be sent*/
@@ -41,6 +42,7 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate,
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        recieverLabel.text = ""
         nameField.text = name
         messageField.editable = true
         nameField.delegate = self
@@ -95,6 +97,7 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate,
     
     func contactPicker(picker: CNContactPickerViewController, didSelectContactProperty contactProperty: CNContactProperty) {
         phoneField.text = contactProperty.value!.valueForKey("digits")! as! String
+        recieverLabel.text = contactProperty.contact.givenName + " " + contactProperty.contact.familyName
     }
     override func viewWillDisappear(animated: Bool) {
         self.navigationController?.navigationBarHidden = false
@@ -112,12 +115,16 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate,
             messageField.text = "Type your message here"
         }
     }
+    var originalText = ""
     func textFieldDidBeginEditing(textField: UITextField) {
         if textField == nameField && nameField.text == "Enter your name"{
             nameField.text = ""
         }
         if textField == phoneField && phoneField.text == "Receiving number"{
             phoneField.text = ""
+        }
+        else{
+            originalText = phoneField.text!
         }
     }
     func textFieldDidEndEditing(textField: UITextField) {
@@ -129,6 +136,9 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate,
         }
         if textField == phoneField && phoneField.text == ""{
             phoneField.text = "Receiving number"
+        }
+        else if phoneField.text! != originalText{
+            recieverLabel.text = ""
         }
     }
     

@@ -88,14 +88,37 @@
                                     </mask>
                                 </variation>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="viM-XF-60S">
+                                <rect key="frame" x="184" y="43.5" width="44" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3HA-jM-XXh">
+                                <rect key="frame" x="204.5" y="81.5" width="23.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name of Reciever" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="okP-Z5-Ldb">
+                                <rect key="frame" x="373" y="81.5" width="135" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="GFH-Pw-Cis" firstAttribute="leading" secondItem="3HA-jM-XXh" secondAttribute="trailing" constant="7" id="6XC-Aw-d5r"/>
+                            <constraint firstItem="okP-Z5-Ldb" firstAttribute="leading" secondItem="GFH-Pw-Cis" secondAttribute="trailing" constant="8" id="7bV-iE-9hP"/>
+                            <constraint firstItem="3HA-jM-XXh" firstAttribute="centerY" secondItem="GFH-Pw-Cis" secondAttribute="centerY" id="8gw-Mo-dJB"/>
                             <constraint firstItem="i3i-Dl-5Bu" firstAttribute="top" secondItem="Tav-BV-qc3" secondAttribute="bottom" constant="3" id="9Y1-Vs-mFa"/>
                             <constraint firstAttribute="centerX" secondItem="eCS-1r-dAu" secondAttribute="centerX" constant="1" id="BSQ-f3-k1X"/>
                             <constraint firstAttribute="trailingMargin" secondItem="eCS-1r-dAu" secondAttribute="trailing" constant="-15" id="DEH-a4-sC8"/>
+                            <constraint firstItem="viM-XF-60S" firstAttribute="centerY" secondItem="iPa-QA-an1" secondAttribute="centerY" id="DPk-9f-745"/>
                             <constraint firstItem="GFH-Pw-Cis" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="LI4-bA-Za5"/>
                             <constraint firstItem="eCS-1r-dAu" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-17" id="LgU-72-Rn3"/>
+                            <constraint firstItem="viM-XF-60S" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="MOm-2E-ylJ"/>
                             <constraint firstAttribute="leadingMargin" secondItem="i3i-Dl-5Bu" secondAttribute="leading" id="MmF-Ha-hh1"/>
                             <constraint firstItem="Tav-BV-qc3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="OHt-Fz-rff"/>
                             <constraint firstAttribute="centerX" secondItem="MRr-Qa-syE" secondAttribute="centerX" constant="2" id="S5D-Nq-gBF"/>
@@ -104,11 +127,15 @@
                             <constraint firstAttribute="trailingMargin" secondItem="i3i-Dl-5Bu" secondAttribute="trailing" id="acW-Q2-mBi"/>
                             <constraint firstItem="iPa-QA-an1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="1.5" id="c96-aK-Cpa"/>
                             <constraint firstItem="i3i-Dl-5Bu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fS5-mb-g0g"/>
+                            <constraint firstItem="iPa-QA-an1" firstAttribute="leading" secondItem="viM-XF-60S" secondAttribute="trailing" constant="8.5" id="g2B-fy-ZgN"/>
                             <constraint firstItem="GFH-Pw-Cis" firstAttribute="top" secondItem="iPa-QA-an1" secondAttribute="bottom" constant="8" id="gsP-GM-IoW"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="MRr-Qa-syE" secondAttribute="bottom" constant="60" id="j01-7T-3qH"/>
                             <constraint firstItem="Tav-BV-qc3" firstAttribute="top" secondItem="GFH-Pw-Cis" secondAttribute="bottom" constant="8" id="lwk-FW-Iql"/>
+                            <constraint firstItem="okP-Z5-Ldb" firstAttribute="centerY" secondItem="GFH-Pw-Cis" secondAttribute="centerY" id="mUf-QP-hlV"/>
                             <constraint firstItem="i3i-Dl-5Bu" firstAttribute="top" secondItem="GFH-Pw-Cis" secondAttribute="bottom" constant="36" id="uLI-c1-K6d"/>
                             <constraint firstItem="eCS-1r-dAu" firstAttribute="top" secondItem="i3i-Dl-5Bu" secondAttribute="bottom" constant="8" id="ugd-XW-ZBG"/>
+                            <constraint firstItem="3HA-jM-XXh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="vbx-Ss-KmO"/>
+                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="okP-Z5-Ldb" secondAttribute="trailing" constant="10" id="vwn-WZ-dCW"/>
                         </constraints>
                     </view>
                     <connections>
@@ -116,6 +143,7 @@
                         <outlet property="messageField" destination="i3i-Dl-5Bu" id="tkO-Hk-FlT"/>
                         <outlet property="nameField" destination="iPa-QA-an1" id="Ntz-L7-bkS"/>
                         <outlet property="phoneField" destination="GFH-Pw-Cis" id="XiJ-Jc-bBJ"/>
+                        <outlet property="recieverLabel" destination="okP-Z5-Ldb" id="O6m-xm-HpQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
