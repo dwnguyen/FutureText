@@ -10,12 +10,18 @@ import UIKit
 import MessageUI
 import mailgun
 
-class ViewController: UIViewController, MFMessageComposeViewControllerDelegate, UITextViewDelegate, UITextFieldDelegate {
-    
+class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate {
+
+    /** Takes user input for the user's name*/
     @IBOutlet weak var nameField: UITextField!
+    /** Takes user input for the message to be sent*/
     @IBOutlet weak var messageField: UITextView!
+    /** Takes user input for number to which the message is sent*/
     @IBOutlet weak var phoneField: UITextField!
+    /** Takes user input for the date at which the message is sent*/
     @IBOutlet weak var datePicker: UIDatePicker!
+    
+    /** Stores the name of the user*/
     var name = "";
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,9 +36,13 @@ class ViewController: UIViewController, MFMessageComposeViewControllerDelegate, 
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
     }
-    
+    /**
+     Sends a text by emailing service provider when linked button is pressed.
+     Uses the provided name and phone number from the text fields.
+     - Parameter sender:   The button that calls the method
+    */
     @IBAction func sendText(sender: UIButton) {
-        let mailgun: Mailgun = Mailgun.clientWithDomain("samples.mailgun.org", apiKey: "key-3ax6xnjp29jd6fds4gc373sgvjxteol0")
+        let mailgun: Mailgun = Mailgun.clientWithDomain("sandboxb5df4d368c4c472ea05844e6da828448.mailgun.org", apiKey: "key-eb644fc9dafb391e4135512567198c7d")
         let seconds = datePicker.date.timeIntervalSinceNow - 60
         let delay = seconds * Double(NSEC_PER_SEC)  // nanoseconds per seconds
         let dispatchTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
@@ -40,26 +50,27 @@ class ViewController: UIViewController, MFMessageComposeViewControllerDelegate, 
         
         dispatch_after(dispatchTime, dispatch_get_main_queue(), {
             mailgun.sendMessageTo("Reciever <" + self.phoneField.text! + "@txt.att.net>", from: self.nameField.text! + "<someone@sample.org>", subject: "", body: self.messageField.text! + "\n This message was sent using futuretext")
+            mailgun.sendMessageTo("Reciever <" + self.phoneField.text! + "@vtext.com>", from: self.nameField.text! + "<someone@sample.org>", subject: "", body: self.messageField.text! + "\n This message was sent using futuretext")
+            mailgun.sendMessageTo("Reciever <" + self.phoneField.text! + "@tmomail.net>", from: self.nameField.text! + "<someone@sample.org>", subject: "", body: self.messageField.text! + "\n This message was sent using futuretext")
+            mailgun.sendMessageTo("Reciever <" + self.phoneField.text! + "@messaging.sprintpcs.com>", from: self.nameField.text! + "<someone@sample.org>", subject: "", body: self.messageField.text! + "\n This message was sent using futuretext")
             print("Message Sent")
             
         })
         
     }
     
-    func messageComposeViewController(controller: MFMessageComposeViewController, didFinishWithResult result: MessageComposeResult) {
-        //... handle sms screen actions
-        self.dismissViewControllerAnimated(true, completion: nil)
-    }
     
     override func viewWillDisappear(animated: Bool) {
         self.navigationController?.navigationBarHidden = false
     }
     
+    /** Clears the text view when the user begins editing*/
     func textViewDidBeginEditing(textView: UITextView) {
         if messageField.text == "Type your message here"{
             messageField.text = ""
         }
     }
+    /** Replaces the default text in the text view if there is no user input*/
     func textViewDidEndEditing(textView: UITextView) {
         if messageField.text == ""{
             messageField.text = "Type your message here"

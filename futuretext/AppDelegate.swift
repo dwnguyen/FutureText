@@ -7,12 +7,26 @@
 //
 
 import UIKit
+import Contacts
 
+@available(iOS 9.0, *)
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
+    /** Handles the user's contacts*/
+    var contactStore = CNContactStore()
     var window: UIWindow?
-
+    
+    /** 
+     
+     Getter method for AppDelegate
+     
+    - Returns:AppDelegate
+     
+     */
+    class func getAppDelegate() -> AppDelegate {
+        return UIApplication.sharedApplication().delegate as! AppDelegate
+    }
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
