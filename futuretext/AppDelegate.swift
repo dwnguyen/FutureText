@@ -16,37 +16,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     /** Handles the user's contacts*/
     var contactStore = CNContactStore()
     var coder = NSCoder()
-    var messagesArray : Array<Message> = []
-    
-        /**{
-            get {
-                if let storedArray = NSUserDefaults.standardUserDefaults().objectForKey("messagesArray") as? Array<NSData>{
-                    var decodedArray: Array<Message> = []
-                    for encodedMessage in storedArray{
-                        let decodedMessage: Message = NSKeyedUnarchiver.unarchiveObjectWithData(encodedMessage) as! Message
-                        decodedArray.append(decodedMessage)
-                    }
-                    print(decodedArray)
-                    return decodedArray
-                    
-                } else {
-                    return []//Default value
-                }
-            }
-            set {
-                var storedArray:Array<NSData> = []
-                for message in messagesArray{
-                    let encodedMessage:NSData = NSKeyedArchiver.archivedDataWithRootObject(message)
-                    storedArray.append(encodedMessage)
-                }
-                
-                NSUserDefaults.standardUserDefaults().setObject(storedArray, forKey: "messagesArray")
-            }
-    } */
-
+    var messagesArray : Array<Message>!
     var window: UIWindow?
     
-    /** 
+    func saveMessages(){
+        var storedArray:Array<NSData> = []
+        for message in messagesArray{
+            let encodedMessage:NSData = NSKeyedArchiver.archivedDataWithRootObject(message)
+            storedArray.append(encodedMessage)
+        }
+        NSUserDefaults.standardUserDefaults().setObject(storedArray, forKey: "messagesArray")
+    }
+    
+    func loadMessages(){
+        if let storedArray = NSUserDefaults.standardUserDefaults().objectForKey("messagesArray") as? Array<NSData>{
+            var decodedArray: Array<Message> = []
+            for encodedMessage in storedArray{
+                let decodedMessage: Message = NSKeyedUnarchiver.unarchiveObjectWithData(encodedMessage) as! Message
+                decodedArray.append(decodedMessage)
+            }
+            messagesArray = decodedArray
+            
+        } else {
+            messagesArray = []//Default value
+        }
+
+    }
+    /**
      
      Getter method for AppDelegate
      
@@ -85,6 +81,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
+        loadMessages()
         return true
     }
 
@@ -96,6 +93,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        saveMessages()
     }
 
     func applicationWillEnterForeground(application: UIApplication) {
@@ -104,10 +102,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        loadMessages()
     }
 
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+        saveMessages()
     }
 
 
