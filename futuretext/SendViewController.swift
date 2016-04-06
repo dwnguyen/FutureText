@@ -1,9 +1,9 @@
 //
-//  ViewController.swift
+//  SendViewController.swift
 //  futuretext
 //
-//  Created by David Nguyen on 1/16/16.
-//  Copyright (c) 2016 David Nguyen. All rights reserved.
+//  Created by David Nguyen on 4/6/16.
+//  Copyright © 2016 David Nguyen. All rights reserved.
 //
 
 import UIKit
@@ -13,9 +13,9 @@ import ContactsUI
 
 
 @available(iOS 9.0, *)
-class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate, CNContactPickerDelegate {
+class SendViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate, CNContactPickerDelegate {
     
-    @IBOutlet weak var recieverLabel: UILabel!
+    @IBOutlet weak var receiverLabel: UILabel!
     /** Takes user input for the user's name*/
     @IBOutlet weak var nameField: UITextField!
     /** Takes user input for the message to be sent*/
@@ -42,7 +42,7 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate,
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        recieverLabel.text = ""
+        receiverLabel.text = ""
         nameField.text = name
         messageField.editable = true
         nameField.delegate = self
@@ -60,19 +60,21 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate,
      Uses the provided name and phone number from the text fields.
      
      - Parameter sender:   The button that calls the method (Send to Future)
-    */
+     */
     @IBAction func sendText(sender: UIButton) {
         let mailgun: Mailgun = Mailgun.clientWithDomain("sandboxb5df4d368c4c472ea05844e6da828448.mailgun.org", apiKey: "key-eb644fc9dafb391e4135512567198c7d")
         let seconds = datePicker.date.timeIntervalSinceNow - 60
         let delay = seconds * Double(NSEC_PER_SEC)  // nanoseconds per seconds
         let dispatchTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
-        print(seconds)
-        
+        let message = Message(senderName: nameField.text!, receivingNum: phoneField.text!, receivingName: receiverLabel.text!, message: messageField.text, sendDate: datePicker.date)
+        AppDelegate.getAppDelegate().messagesArray.append(message)
+        print(message.senderName)
+        print(AppDelegate.getAppDelegate().messagesArray.count)
         dispatch_after(dispatchTime, dispatch_get_main_queue(), {
-            mailgun.sendMessageTo("Reciever <" + self.phoneField.text! + "@txt.att.net>", from: self.nameField.text! + "<someone@sample.org>", subject: "", body: self.messageField.text! + "\n This message was sent using futuretext")
-            mailgun.sendMessageTo("Reciever <" + self.phoneField.text! + "@vtext.com>", from: self.nameField.text! + "<someone@sample.org>", subject: "", body: self.messageField.text! + "\n This message was sent using futuretext")
-            mailgun.sendMessageTo("Reciever <" + self.phoneField.text! + "@tmomail.net>", from: self.nameField.text! + "<someone@sample.org>", subject: "", body: self.messageField.text! + "\n This message was sent using futuretext")
-            mailgun.sendMessageTo("Reciever <" + self.phoneField.text! + "@messaging.sprintpcs.com>", from: self.nameField.text! + "<someone@sample.org>", subject: "", body: self.messageField.text! + "\n This message was sent using futuretext")
+            mailgun.sendMessageTo("receiver <" + self.phoneField.text! + "@txt.att.net>", from: self.nameField.text! + "<someone@sample.org>", subject: "", body: self.messageField.text! + "\n This message was sent using futuretext")
+            mailgun.sendMessageTo("receiver <" + self.phoneField.text! + "@vtext.com>", from: self.nameField.text! + "<someone@sample.org>", subject: "", body: self.messageField.text! + "\n This message was sent using futuretext")
+            mailgun.sendMessageTo("receiver <" + self.phoneField.text! + "@tmomail.net>", from: self.nameField.text! + "<someone@sample.org>", subject: "", body: self.messageField.text! + "\n This message was sent using futuretext")
+            mailgun.sendMessageTo("receiver <" + self.phoneField.text! + "@messaging.sprintpcs.com>", from: self.nameField.text! + "<someone@sample.org>", subject: "", body: self.messageField.text! + "\n This message was sent using futuretext")
             print("Message Sent")
             
         })
@@ -97,12 +99,12 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate,
     
     func contactPicker(picker: CNContactPickerViewController, didSelectContactProperty contactProperty: CNContactProperty) {
         phoneField.text = contactProperty.value!.valueForKey("digits")! as! String
-        recieverLabel.text = contactProperty.contact.givenName + " " + contactProperty.contact.familyName
+        receiverLabel.text = contactProperty.contact.givenName + " " + contactProperty.contact.familyName
     }
     override func viewWillDisappear(animated: Bool) {
         self.navigationController?.navigationBarHidden = false
     }
-    
+/**
     /** Clears the text view when the user begins editing*/
     func textViewDidBeginEditing(textView: UITextView) {
         if messageField.text == "Type your message here"{
@@ -120,7 +122,7 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate,
         if textField == nameField && nameField.text == "Enter your name"{
             nameField.text = ""
         }
-        if textField == phoneField && phoneField.text == "Receiving number"{
+        if textField == phoneField && phoneField.text == "Receiving number?"{
             phoneField.text = ""
         }
         else{
@@ -135,12 +137,11 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate,
             name = nameField.text!
         }
         if textField == phoneField && phoneField.text == ""{
-            phoneField.text = "Receiving number"
+            phoneField.text = "Receiving number?"
         }
         else if phoneField.text! != originalText{
-            recieverLabel.text = ""
+            receiverLabel.text = ""
         }
     }
-    
-    
+    **/
 }

@@ -15,6 +15,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     /** Handles the user's contacts*/
     var contactStore = CNContactStore()
+    var coder = NSCoder()
+    var messagesArray : Array<Message> = []
+    
+        /**{
+            get {
+                if let storedArray = NSUserDefaults.standardUserDefaults().objectForKey("messagesArray") as? Array<NSData>{
+                    var decodedArray: Array<Message> = []
+                    for encodedMessage in storedArray{
+                        let decodedMessage: Message = NSKeyedUnarchiver.unarchiveObjectWithData(encodedMessage) as! Message
+                        decodedArray.append(decodedMessage)
+                    }
+                    print(decodedArray)
+                    return decodedArray
+                    
+                } else {
+                    return []//Default value
+                }
+            }
+            set {
+                var storedArray:Array<NSData> = []
+                for message in messagesArray{
+                    let encodedMessage:NSData = NSKeyedArchiver.archivedDataWithRootObject(message)
+                    storedArray.append(encodedMessage)
+                }
+                
+                NSUserDefaults.standardUserDefaults().setObject(storedArray, forKey: "messagesArray")
+            }
+    } */
+
     var window: UIWindow?
     
     /** 
