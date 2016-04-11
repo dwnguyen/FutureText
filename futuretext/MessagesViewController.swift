@@ -22,31 +22,7 @@ class MessagesViewController: UIViewController, UITableViewDelegate, UITableView
         // Do any additional setup after loading the view, typically from a nib.
     }
     override func viewWillAppear(animated: Bool) {
-        if AppDelegate.getAppDelegate().messagesArray.count != 0 {
-            for var i = 0; i < AppDelegate.getAppDelegate().messagesArray.count; i++ {
-                if AppDelegate.getAppDelegate().messagesArray[i].sendDate.earlierDate(NSDate()) == AppDelegate.getAppDelegate().messagesArray[i].sendDate{
-                    AppDelegate.getAppDelegate().messagesArray.removeAtIndex(i);
-                }
-            }
-            if AppDelegate.getAppDelegate().messagesArray.count > 1{
-                var sorted = false
-                while sorted == false{
-                    for var y = AppDelegate.getAppDelegate().messagesArray.count - 2; y >= 0; y-- {
-                        if AppDelegate.getAppDelegate().messagesArray[y].sendDate.earlierDate(AppDelegate.getAppDelegate().messagesArray[y + 1].sendDate) == AppDelegate.getAppDelegate().messagesArray[y + 1].sendDate{
-                            let x = AppDelegate.getAppDelegate().messagesArray[y + 1].sendDate
-                            AppDelegate.getAppDelegate().messagesArray[y + 1].sendDate = AppDelegate.getAppDelegate().messagesArray[y].sendDate
-                            AppDelegate.getAppDelegate().messagesArray[y].sendDate = x
-                            sorted = false
-                        }
-                        else{
-                            sorted = true
-                        }
-                    }
-                    
-                }
-            }
-        }
-        
+        AppDelegate.getAppDelegate().orderMessages()
         
         messagesTable.reloadData()
     }

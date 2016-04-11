@@ -76,15 +76,41 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 
             }
         })
+    }
+    
+    func orderMessages(){
+        if messagesArray.count != 0 {
+            for var i = 0; i < messagesArray.count; i++ {
+                if messagesArray[i].sendDate.earlierDate(NSDate()) == messagesArray[i].sendDate{
+                    messagesArray.removeAtIndex(i);
+                }
+            }
+            if messagesArray.count > 1{
+                var sorted = false
+                while sorted == false{
+                    for var y = messagesArray.count - 2; y >= 0; y-- {
+                        if messagesArray[y].sendDate.earlierDate(messagesArray[y + 1].sendDate) == messagesArray[y + 1].sendDate{
+                            let x = messagesArray[y + 1].sendDate
+                            messagesArray[y + 1].sendDate = messagesArray[y].sendDate
+                            messagesArray[y].sendDate = x
+                            sorted = false
+                        }
+                        else{
+                            sorted = true
+                        }
+                    }
+                    
+                }
+            }
+        }
 
-        
     }
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         if firstRun{
-            
         }
         loadMessages()
+        orderMessages()
         return true
     }
 
@@ -96,6 +122,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        
         saveMessages()
     }
 
@@ -106,6 +133,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidBecomeActive(application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
         loadMessages()
+        orderMessages()
     }
 
     func applicationWillTerminate(application: UIApplication) {
