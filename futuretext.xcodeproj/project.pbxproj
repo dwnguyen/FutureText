@@ -10,7 +10,6 @@
 		A131B008B517D06F5B1644A2 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 495F6DC07A709D3386441BD4 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		F44188471C4B23830044179A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44188461C4B23830044179A /* AppDelegate.swift */; };
 		F441884C1C4B23830044179A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F441884A1C4B23830044179A /* Main.storyboard */; };
-		F441884E1C4B23830044179A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F441884D1C4B23830044179A /* Images.xcassets */; };
 		F44188511C4B23830044179A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F441884F1C4B23830044179A /* LaunchScreen.xib */; };
 		F441885D1C4B23830044179A /* futuretextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F441885C1C4B23830044179A /* futuretextTests.swift */; };
 		F498FF071C5ECA6600D0DAD8 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F498FF061C5ECA6600D0DAD8 /* SystemConfiguration.framework */; };
@@ -19,6 +18,7 @@
 		F4E8EB201CB59CCE00EE52C1 /* MessageTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E8EB1F1CB59CCE00EE52C1 /* MessageTableCell.swift */; };
 		F4E8EB5E1CB59F9D00EE52C1 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E8EB5D1CB59F9D00EE52C1 /* MessagesViewController.swift */; };
 		F4E8EB621CB5A11A00EE52C1 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E8EB611CB5A11A00EE52C1 /* Message.swift */; };
+		F4EA50801CB60EC300C8493A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4EA507F1CB60EC300C8493A /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,7 +40,6 @@
 		F44188451C4B23830044179A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F44188461C4B23830044179A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F441884B1C4B23830044179A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		F441884D1C4B23830044179A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F44188501C4B23830044179A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		F44188561C4B23830044179A /* futuretextTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = futuretextTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F441885B1C4B23830044179A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -51,6 +50,7 @@
 		F4E8EB1F1CB59CCE00EE52C1 /* MessageTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableCell.swift; sourceTree = "<group>"; };
 		F4E8EB5D1CB59F9D00EE52C1 /* MessagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
 		F4E8EB611CB5A11A00EE52C1 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		F4EA507F1CB60EC300C8493A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,7 +123,7 @@
 				F44188461C4B23830044179A /* AppDelegate.swift */,
 				F4E8EB1B1CB59A0700EE52C1 /* SendViewController.swift */,
 				F441884A1C4B23830044179A /* Main.storyboard */,
-				F441884D1C4B23830044179A /* Images.xcassets */,
+				F4EA507F1CB60EC300C8493A /* Images.xcassets */,
 				F441884F1C4B23830044179A /* LaunchScreen.xib */,
 				F44188441C4B23830044179A /* Supporting Files */,
 			);
@@ -241,9 +241,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4EA50801CB60EC300C8493A /* Images.xcassets in Resources */,
 				F441884C1C4B23830044179A /* Main.storyboard in Resources */,
 				F44188511C4B23830044179A /* LaunchScreen.xib in Resources */,
-				F441884E1C4B23830044179A /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

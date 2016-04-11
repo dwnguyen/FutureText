@@ -18,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var coder = NSCoder()
     var messagesArray : Array<Message>!
     var window: UIWindow?
+    var firstRun = true
     
     func saveMessages(){
         var storedArray:Array<NSData> = []
@@ -80,7 +81,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        
+        if firstRun{
+            
+        }
         loadMessages()
         return true
     }

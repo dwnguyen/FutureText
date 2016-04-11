@@ -70,30 +70,47 @@ class SendViewController: UIViewController, UITextViewDelegate, UITextFieldDeleg
         AppDelegate.getAppDelegate().messagesArray.append(message)
         print(message.senderName)
         print(AppDelegate.getAppDelegate().messagesArray.count)
+        var numberString = phoneField.text!
+        let index = numberString.endIndex.predecessor().predecessor().predecessor().predecessor().predecessor().predecessor().predecessor().predecessor().predecessor().predecessor()
+        
+        numberString = numberString.substringFromIndex(index)
         dispatch_after(dispatchTime, dispatch_get_main_queue(), {
-            mailgun.sendMessageTo("receiver <" + self.phoneField.text! + "@txt.att.net>", from: self.nameField.text! + "<someone@sample.org>", subject: "", body: self.messageField.text! + "\n This message was sent using futuretext")
-            mailgun.sendMessageTo("receiver <" + self.phoneField.text! + "@vtext.com>", from: self.nameField.text! + "<someone@sample.org>", subject: "", body: self.messageField.text! + "\n This message was sent using futuretext")
-            mailgun.sendMessageTo("receiver <" + self.phoneField.text! + "@tmomail.net>", from: self.nameField.text! + "<someone@sample.org>", subject: "", body: self.messageField.text! + "\n This message was sent using futuretext")
-            mailgun.sendMessageTo("receiver <" + self.phoneField.text! + "@messaging.sprintpcs.com>", from: self.nameField.text! + "<someone@sample.org>", subject: "", body: self.messageField.text! + "\n This message was sent using futuretext")
+            mailgun.sendMessageTo("receiver <" + numberString + "@txt.att.net>", from: self.nameField.text! + "<someone@sample.org>", subject: "", body: self.messageField.text! + "\n This message was sent using futuretext")
+            mailgun.sendMessageTo("receiver <" + numberString + "@vtext.com>", from: self.nameField.text! + "<someone@sample.org>", subject: "", body: self.messageField.text! + "\n This message was sent using futuretext")
+            mailgun.sendMessageTo("receiver <" + numberString + "@tmomail.net>", from: self.nameField.text! + "<someone@sample.org>", subject: "", body: self.messageField.text! + "\n This message was sent using futuretext")
+            mailgun.sendMessageTo("receiver <" + numberString + "@messaging.sprintpcs.com>", from: self.nameField.text! + "<someone@sample.org>", subject: "", body: self.messageField.text! + "\n This message was sent using futuretext")
             print("Message Sent")
             
         })
+        
+        
+        let alert = UIAlertController(title: "Message", message:
+            "Message Queued", preferredStyle: UIAlertControllerStyle.Alert)
+        let dismiss = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil)
+        alert.addAction(dismiss)
+        self.presentViewController(alert, animated: true, completion: nil)
         
     }
     
     
     @IBAction func viewContacts(sender: AnyObject) {
-        let contactStore = AppDelegate.getAppDelegate().contactStore
         if !AppDelegate.getAppDelegate().checkContactAccess(){
             AppDelegate.getAppDelegate().requestContactAccess()
+            if AppDelegate.getAppDelegate().checkContactAccess(){
+                presentContacts()
+            }
         }
         else{
-            let contactPicker = CNContactPickerViewController()
-            contactPicker.delegate = self
-            contactPicker.displayedPropertyKeys =
-                [CNContactPhoneNumbersKey]
-            self.presentViewController(contactPicker, animated: true, completion: nil)
+            presentContacts()
         }
+    }
+    
+    func presentContacts(){
+        let contactPicker = CNContactPickerViewController()
+        contactPicker.delegate = self
+        contactPicker.displayedPropertyKeys =
+            [CNContactPhoneNumbersKey]
+        self.presentViewController(contactPicker, animated: true, completion: nil)
     }
     
     
@@ -104,7 +121,6 @@ class SendViewController: UIViewController, UITextViewDelegate, UITextFieldDeleg
     override func viewWillDisappear(animated: Bool) {
         self.navigationController?.navigationBarHidden = false
     }
-/**
     /** Clears the text view when the user begins editing*/
     func textViewDidBeginEditing(textView: UITextView) {
         if messageField.text == "Type your message here"{
@@ -143,5 +159,4 @@ class SendViewController: UIViewController, UITextViewDelegate, UITextFieldDeleg
             receiverLabel.text = ""
         }
     }
-    **/
 }
