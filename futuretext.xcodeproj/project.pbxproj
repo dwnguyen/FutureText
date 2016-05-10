@@ -19,6 +19,7 @@
 		F4E8EB5E1CB59F9D00EE52C1 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E8EB5D1CB59F9D00EE52C1 /* MessagesViewController.swift */; };
 		F4E8EB621CB5A11A00EE52C1 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E8EB611CB5A11A00EE52C1 /* Message.swift */; };
 		F4EA50801CB60EC300C8493A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4EA507F1CB60EC300C8493A /* Images.xcassets */; };
+		F4FADC761CBD5158008D982E /* MessageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FADC751CBD5158008D982E /* MessageHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		F4E8EB5D1CB59F9D00EE52C1 /* MessagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
 		F4E8EB611CB5A11A00EE52C1 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		F4EA507F1CB60EC300C8493A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		F4FADC751CBD5158008D982E /* MessageHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 				F4E8EB5D1CB59F9D00EE52C1 /* MessagesViewController.swift */,
 				F4E8EB611CB5A11A00EE52C1 /* Message.swift */,
 				F4E8EB1F1CB59CCE00EE52C1 /* MessageTableCell.swift */,
+				F4FADC751CBD5158008D982E /* MessageHandler.swift */,
 				F41AC8111C55B33D008A4DA3 /* futuretext-Swift.h */,
 				F44188461C4B23830044179A /* AppDelegate.swift */,
 				F4E8EB1B1CB59A0700EE52C1 /* SendViewController.swift */,
@@ -313,6 +316,7 @@
 				F4E8EB1C1CB59A0700EE52C1 /* SendViewController.swift in Sources */,
 				F4E8EB621CB5A11A00EE52C1 /* Message.swift in Sources */,
 				F4E8EB5E1CB59F9D00EE52C1 /* MessagesViewController.swift in Sources */,
+				F4FADC761CBD5158008D982E /* MessageHandler.swift in Sources */,
 				F4E8EB201CB59CCE00EE52C1 /* MessageTableCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
