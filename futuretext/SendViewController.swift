@@ -1,7 +1,7 @@
 //
 //  SendViewController.swift
 //  futuretext
-//
+//  This ViewController allows the user to write and queue messages to be sent to a specified time. Also allows the user to select who recieves it.
 //  Created by David Nguyen on 4/6/16.
 //  Copyright © 2016 David Nguyen. All rights reserved.
 //

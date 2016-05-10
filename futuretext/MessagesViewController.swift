@@ -1,6 +1,6 @@
 //
 //  MessagesViewController.swift
-//  
+//  Presents all pending messages in a sorted table view
 //
 //  Created by David Nguyen on 4/6/16.
 //

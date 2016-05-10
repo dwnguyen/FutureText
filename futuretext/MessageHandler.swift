@@ -1,7 +1,7 @@
 //
 //  MessageHandler.swift
 //  futuretext
-//
+//  Singleton used to handle the storing, saving, loading, and sorting of messages
 //  Created by David Nguyen on 4/12/16.
 //  Copyright © 2016 David Nguyen. All rights reserved.
 //

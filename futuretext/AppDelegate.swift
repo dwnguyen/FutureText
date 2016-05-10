@@ -1,7 +1,7 @@
 //
 //  AppDelegate.swift
 //  futuretext
-//
+//  Used to handle contacts access
 //  Created by David Nguyen on 1/16/16.
 //  Copyright (c) 2016 David Nguyen. All rights reserved.
 //

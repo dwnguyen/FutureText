@@ -1,7 +1,7 @@
 //
 //  futuretext-Swift.h
 //  futuretext
-//
+//  Imports libraries so that they can be used in Swift (they are originally in Objective-C).
 //  Created by David Nguyen on 1/24/16.
 //  Copyright (c) 2016 David Nguyen. All rights reserved.
 //

@@ -1,7 +1,7 @@
 //
 //  Message.swift
 //  futuretext
-//
+//  Stores the deatils of a queued message so that a user can see their pending messages
 //  Created by David Nguyen on 4/6/16.
 //  Copyright © 2016 David Nguyen. All rights reserved.
 //
