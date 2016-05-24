@@ -18,43 +18,43 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="140" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="b9a-oo-cgU">
-                                <rect key="frame" x="0.0" y="20" width="600" height="531"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="140" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="b9a-oo-cgU">
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="140" id="Bpd-OE-2X2" customClass="MessageTableCell" customModule="futuretext" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="600" height="140"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Bpd-OE-2X2" id="wOt-0E-FvP">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="139.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="140"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DJw-WA-YfB">
-                                                    <rect key="frame" x="8" y="36" width="23.5" height="20.5"/>
+                                                    <rect key="frame" x="8" y="36" width="24" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="9999999999" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8VY-Fa-kim">
-                                                    <rect key="frame" x="39" y="36" width="104.5" height="20.5"/>
+                                                    <rect key="frame" x="39" y="36" width="105" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reciever Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mJ3-6e-KnM">
-                                                    <rect key="frame" x="153" y="36" width="115.5" height="20.5"/>
+                                                    <rect key="frame" x="153" y="36" width="116" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time of Arrival:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rjG-PM-OVH">
-                                                    <rect key="frame" x="8" y="8" width="116" height="20.5"/>
+                                                    <rect key="frame" x="8" y="8" width="116" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99:99 AM 99/99/2016" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DZJ-I8-bte">
-                                                    <rect key="frame" x="132" y="8" width="172" height="20.5"/>
+                                                    <rect key="frame" x="132" y="8" width="172" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -94,11 +94,27 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sub-Oo-Eff">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <items>
+                                    <navigationItem title="Queued Messages" id="6Tk-a8-u2S"/>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="b9a-oo-cgU" firstAttribute="leading" secondItem="sub-Oo-Eff" secondAttribute="leading" id="F6T-81-8HE"/>
+                            <constraint firstItem="sub-Oo-Eff" firstAttribute="centerX" secondItem="CWd-5X-gcr" secondAttribute="centerX" id="FkS-uC-PY2"/>
+                            <constraint firstItem="b9a-oo-cgU" firstAttribute="bottom" secondItem="FOH-Eg-pIa" secondAttribute="top" id="LaV-2R-fst"/>
+                            <constraint firstItem="b9a-oo-cgU" firstAttribute="trailing" secondItem="sub-Oo-Eff" secondAttribute="trailing" id="RyP-es-YQe"/>
+                            <constraint firstItem="b9a-oo-cgU" firstAttribute="top" secondItem="sub-Oo-Eff" secondAttribute="bottom" id="btg-gU-dcd"/>
+                            <constraint firstItem="sub-Oo-Eff" firstAttribute="leading" secondItem="CWd-5X-gcr" secondAttribute="leadingMargin" constant="-20" id="olR-z4-Fx6"/>
+                            <constraint firstItem="sub-Oo-Eff" firstAttribute="top" secondItem="1ml-D8-l2p" secondAttribute="bottom" id="xV5-s2-hO9"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="sub-Oo-Eff" secondAttribute="trailing" constant="-20" id="zkx-CT-zH3"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Messages" image="Message-50" selectedImage="Message-50" id="MSF-RV-bvJ">
-                        <inset key="imageInsets" minX="4" minY="4" maxX="4" maxY="4"/>
+                    <tabBarItem key="tabBarItem" title="Messages" image="Message" selectedImage="Message" id="MSF-RV-bvJ">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
                     </tabBarItem>
                     <connections>
                         <outlet property="messagesTable" destination="b9a-oo-cgU" id="Ran-X5-JoC"/>
@@ -277,9 +293,7 @@
                             <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="okP-Z5-Ldb" secondAttribute="trailing" constant="10" id="vwn-WZ-dCW"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Send Message" image="Sent-50" id="Xfc-DD-NWO">
-                        <inset key="imageInsets" minX="4" minY="4" maxX="4" maxY="4"/>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" title="Send Message" image="Sent-50" id="Xfc-DD-NWO"/>
                     <connections>
                         <outlet property="datePicker" destination="eCS-1r-dAu" id="Pdf-jz-Lgl"/>
                         <outlet property="messageField" destination="i3i-Dl-5Bu" id="tkO-Hk-FlT"/>
@@ -302,7 +316,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Message-50" width="50" height="50"/>
-        <image name="Sent-50" width="50" height="50"/>
+        <image name="Message" width="25" height="25"/>
+        <image name="Sent-50" width="25" height="25"/>
     </resources>
 </document>

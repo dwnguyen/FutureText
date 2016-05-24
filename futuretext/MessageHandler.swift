@@ -46,10 +46,10 @@ class MessageHandler{
                 var sorted = false
                 while sorted == false{
                     for var y = messagesArray.count - 2; y >= 0; y-- {
-                        if messagesArray[y].sendDate.earlierDate(messagesArray[y + 1].sendDate) == messagesArray[y + 1].sendDate{
-                            let x = messagesArray[y + 1].sendDate
-                            messagesArray[y + 1].sendDate = messagesArray[y].sendDate
-                            messagesArray[y].sendDate = x
+                        if messagesArray[y].sendDate.earlierDate(messagesArray[y + 1].sendDate) == messagesArray[y + 1].sendDate && messagesArray[y].sendDate.isEqualToDate(messagesArray[y + 1].sendDate) == false{
+                            let x = messagesArray[y + 1]
+                            messagesArray[y + 1] = messagesArray[y]
+                            messagesArray[y] = x
                             sorted = false
                         }
                         else{
